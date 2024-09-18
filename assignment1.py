@@ -1,29 +1,28 @@
+
 import statsmodels.formula.api as smf
 import pandas as pd
 
-# Load the training data
-train_data = pd.read_csv("https://github.com/dustywhite7/econ8310-assignment1/raw/main/assignment_data_train.csv")
+data = pd.read_csv("https://github.com/dustywhite7/econ8310-assignment1/raw/main/assignment_data_train.csv")
 
-# Explore the data
-train_data.head()
+#explore the data
+data.head()
 
-# Fit the OLS model using 'hour' as the independent variable
-ols_model = smf.ols("trips ~ hour", data=train_data)
+#Select the data, - assign 1
+model = smf.ols("trips ~ hour", data=data)
 
-# Fit the model
-fitted_model = ols_model.fit()
+modelFit = model.fit()
 
-# Display the summary of the fitted model
-fitted_model.summary()
-print(fitted_model.summary())
+modelFit.summary()
+print(modelFit.summary())
 
-# Load the test data
-test_df = pd.read_csv('https://github.com/dustywhite7/econ8310-assignment1/raw/main/assignment_data_test.csv')
-test_df = test_df[['hour']]  # Select only the 'hour' column
-test_df.head(10)
+#use the test_data
+test_data = pd.read_csv('https://github.com/dustywhite7/econ8310-assignment1/raw/main/assignment_data_test.csv')
+test_data = test_data[['hour']]
+test_data.head(10)
 
-# Use the fitted model to predict 'trips' based on the 'hour' from the test data
-predicted_trips = fitted_model.predict(test_df)
+#Predict with the test data if it fits.
+#(See source github open public model fitting, for not work adjust data input)
+prediction= modelFit.predict(test_data)
 
-# Output the predictions
-print(predicted_trips)
+print(prediction)
+
