@@ -18,7 +18,7 @@ trained_model = ols_model.fit()
 print(trained_model.summary())
 
 
-
+test_df = pd.read_csv('https://github.com/dustywhite7/econ8310-assignment1/raw/main/assignment_data_test.csv')
 test_df = test_df[['hour']]  # Only keep the 'hour' column
 print(test_df.head(10))  # Preview the test data
 
