@@ -22,7 +22,7 @@ test_data.head(10)
 
 #Predict with the test data if it fits.
 #(See source github open public model fitting, for not work adjust data input)
-prediction= modelFit.predict(test_data)
+pred = modelFit.predict(test_data)
 
-print(prediction)
+print(pred)
 
